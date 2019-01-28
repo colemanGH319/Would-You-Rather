@@ -4,40 +4,28 @@ class App extends Component {
   render() {
     return (
       <div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="#">Would You Rather?</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">New Question</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Dropdown
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Logout</a>
-              </li>
+        <div>
+          <ul class="nav">
+            <li id="brand">WYR?</li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">New Question</a></li>
+            <li><a href="#">Leader Board</a></li>
+            <li id="logout"><a href="#">Logout</a></li>
+          </ul>
+        </div>
+        <div class="container">
+          <div class="filter-btn">
+            <button>Unanswered Questions</button>
+            <button>Answered Questions</button>
+          </div>
+          <div class="panel">
+            <ul class="questions">
+              <li>Question 1</li>
+              <li>Question 2</li>
+              <li>Question 3</li>
             </ul>
           </div>
-        </nav>
+        </div>
       </div>
     );
   }
