@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import Question from './Question'
-import { connect } from 'react-redux'
 
 class QuestionList extends Component {
 
   render() {
+    const questions = Object.values(this.props.questions)
+    console.log(questions)
     return (
       <div className="container">
         <div className="filter-btn">
@@ -13,9 +14,14 @@ class QuestionList extends Component {
         </div>
         <div className="panel">
           <ul className="question-list">
-              <li><Question /></li>
-              <li><Question /></li>
-              <li><Question /></li>
+            {questions.map((question) => (
+              <li key={question.id}>
+                <Question
+                  user={this.props.users[question.author].name}
+                  text={question.optionOne.text}
+                  />
+              </li>
+            ))}
           </ul>
         </div>
       </div>
@@ -23,10 +29,4 @@ class QuestionList extends Component {
   }
 }
 
-function mapStateToProps({users}) {
-  return {
-    users: users
-  }
-}
-
-export default connect(mapStateToProps)(QuestionList)
+export default QuestionList
