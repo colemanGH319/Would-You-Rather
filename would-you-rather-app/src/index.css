@@ -6,6 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #666666;
 }
 
 code {
@@ -69,9 +70,6 @@ code {
 
 .panel {
   margin: 30px 10px 50px 10px;
-  border-style: solid;
-  border-color: gray;
-  border-radius: 5px;
 }
 
 .filter-btn {
@@ -84,7 +82,7 @@ code {
 
 .filter-btn button {
   background-color: #FF4444;
-  border: none;
+  border: 1px solid white;
   color: white;
   padding: 15px 25px;
   text-align: center;
@@ -105,17 +103,42 @@ code {
 }
 
 .question {
-  border: 2px solid black;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin-top: 2%;
+  display: grid;
+  grid-template-columns: 30% 70%;
 }
 
-img {
+.question-info {
+  padding: 5px 15px 5px 15px;
+}
+
+.question-info img {
   border-radius: 50%;
-  width: 20%;
-  padding: 5%;
+  width: 100%;
 }
 
-#panel-right {
-  float: right;
-  padding-right: 10%;
-  font-size: 20px;
+.question-info h2 {
+  margin-top: 0px;
+}
+
+.question-info h4 {
+  margin-top: 0%;
+  text-align: center;
+}
+
+.question-info button {
+  width: 100%;
+  height: 20%;
+  margin-top: 5%;
+  background-color: #5555FF;
+  border: none;
+  border-radius: 3px;
+}
+
+.question-info button a {
+  display: block;
+  text-decoration: none;
+  color: white;
 }
