@@ -14,10 +14,14 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
-          <Nav />
-          <Route path='/' exact component={QuestionList} />
-        </div>
+      <div>
+          {this.props.loading === true
+            ? <div className="loading-page"><h2>Loading...</h2></div>
+            : <div>
+                <Nav />
+                <Route path='/' exact component={QuestionList} />
+              </div>}
+      </div>
       </Router>
     )}
 }
