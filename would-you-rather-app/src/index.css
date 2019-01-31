@@ -14,6 +14,15 @@ code {
     monospace;
 }
 
+.loading-page {
+  width: 20%;
+  margin-top: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 30px;
+}
+
 .nav {
   list-style-type: none;
   margin: 0;
