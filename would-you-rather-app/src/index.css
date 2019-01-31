@@ -98,8 +98,10 @@ code {
 .question-list {
   list-style-type: none;
   width: 80%;
+  max-height: 500px;
   margin: auto;
   padding: 0;
+  overflow-y: scroll;
 }
 
 .question {

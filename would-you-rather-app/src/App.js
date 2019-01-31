@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import Nav from './components/Nav'
 import QuestionList from './components/QuestionList'
-// import { handleInitialData } from './actions/shared'
-// import { connect } from 'react-redux'
+import PollView from './components/PollView'
+import { Route } from 'react-router-dom'
+import { handleInitialData } from './actions/shared'
+import { connect } from 'react-redux'
 
 class App extends Component {
-
+  componentDidMount(){
+    this.props.dispatch(handleInitialData())
+  }
   state = {
     users: {
       sarahedo: {
@@ -126,13 +130,25 @@ class App extends Component {
   }
 
   render() {
+    // console.log("App props: ", this.props)
+    if (this.props.loading === true){
+      return (
+        <div><h2>Loading...</h2></div>
+      )
+    } else {
     return (
       <div>
         <Nav />
-        <QuestionList users={this.state.users} questions={this.state.questions}/>
+        <QuestionList />
       </div>
-    );
+    )}
   }
 }
 
-export default App;
+function mapStateToProps({ users, questions }) {
+  return {
+    loading: (Object.values(users).length === 0 || Object.values(questions).length === 0),
+  }
+}
+
+export default connect(mapStateToProps)(App);
