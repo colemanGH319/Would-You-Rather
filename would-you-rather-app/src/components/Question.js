@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { NavLink } from 'react-router-dom'
 
 class Question extends Component {
 
@@ -14,7 +15,7 @@ class Question extends Component {
           <div className="question-info">
             <h2>Would you rather?</h2>
             <p>...{this.props.text}...</p>
-            <button><a href="#">View Poll</a></button>
+            <button><NavLink to={`/poll/${this.props.id}`}>View Poll</NavLink></button>
           </div>
         </div>
     )

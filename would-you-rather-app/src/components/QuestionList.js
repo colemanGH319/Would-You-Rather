@@ -1,11 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 import Question from './Question'
 
 class QuestionList extends Component {
 
   render() {
     const questions = Object.values(this.props.questions)
+    const loggedIn = false
+    // if (!loggedIn){
+    //   return (<Redirect to="/logout"/>)
+    // }
     return (
       <div className="container">
         <div className="filter-btn">
@@ -17,6 +22,7 @@ class QuestionList extends Component {
             {questions.map((question) => (
               <li key={question.id}>
                 <Question
+                  id={question.id}
                   user={this.props.users[question.author].name}
                   text={question.optionOne.text}
                   />

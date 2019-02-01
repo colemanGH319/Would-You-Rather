@@ -16,11 +16,12 @@ class App extends Component {
       <Router>
       <div>
           {this.props.loading === true
-            ? <div className="loading-page"><h2>Loading...</h2></div>
-            : <div>
+            ? (<div className="loading-page"><h2>Loading...</h2></div>)
+            : (<div>
                 <Nav />
                 <Route path='/' exact component={QuestionList} />
-              </div>}
+                <Route path='/poll/:id' component={PollView} />
+              </div>)}
       </div>
       </Router>
     )}
