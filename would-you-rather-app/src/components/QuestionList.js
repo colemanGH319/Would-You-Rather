@@ -5,6 +5,14 @@ import Question from './Question'
 
 class QuestionList extends Component {
 
+  setQuestionFilter = (status, arr) => {
+
+  }
+
+  answeredByAuthedUser = (question) => {
+
+  }
+
   render() {
     const questions = Object.values(this.props.questions)
     const loggedIn = false

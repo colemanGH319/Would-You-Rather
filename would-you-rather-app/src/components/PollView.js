@@ -13,7 +13,7 @@ class PollView extends Component {
     console.log(this.props)
     const { user, poll } = this.props
     return (
-      <div className="question">
+      <div className="poll-container">
         <div className="question-info">
           <img src={imgUrl} alt="Your face here"/>
           <h4>{user}</h4>
@@ -21,11 +21,20 @@ class PollView extends Component {
         <div className="question-info">
           <h2>Would you rather?</h2>
           <form action="#">
-            <label><input type="radio" name="poll-option" value="Something" required/> {poll.optionOne.text}</label><br/>
-            <label><input type="radio" name="poll-option" value="Something else"/> {poll.optionTwo.text}</label>
-            <button onClick={this.handleSubmit}><NavLink to={`/results/${poll.id}`}>Submit</NavLink></button>
+            <label>
+              <input type="radio"
+                    name="poll-option"
+                    value="Something" required/> {poll.optionOne.text}
+            </label><br/>
+            <label>
+              <input type="radio"
+                    name="poll-option"
+                    value="Something else"/> {poll.optionTwo.text}
+            </label>
+            <button id="poll-button" onClick={this.handleSubmit}>
+              <NavLink to={`/results/${poll.id}`}>Submit</NavLink>
+            </button>
           </form>
-
         </div>
       </div>
     )
@@ -34,7 +43,7 @@ class PollView extends Component {
 
 function mapStateToProps({ questions, users }, props) {
   const { id } = props.match.params
-  const question = Object.values(questions).filter((q) => q.id === id)[0]
+  const question = questions[id]
   return {
     id,
     user: question.author,
