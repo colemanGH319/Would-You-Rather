@@ -5,10 +5,6 @@ import { setAuthedUser, removeAuthedUser } from '../actions/authedUser'
 
 class Nav extends Component {
 
-  handleLogin = () => {
-    this.props.dispatch(setAuthedUser({id: "tylermcginnis"}))
-  }
-
   handleLogout = () => {
     this.props.dispatch(removeAuthedUser())
   }
