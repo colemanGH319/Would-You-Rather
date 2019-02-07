@@ -11,7 +11,7 @@ class Login extends Component {
   handleLoginSubmit = (e) => {
     e.preventDefault()
     console.log(e)
-    this.props.dispatch(setAuthedUser({ id: "sarahedo" }))
+    this.props.dispatch(setAuthedUser({ id: "sarahedo", loggedIn: true }))
     this.props.history.push('/')
   }
 
