@@ -10,15 +10,16 @@ class QuestionList extends Component {
   }
 
   answeredByAuthedUser = (question) => {
-
+    let allVotes = question.optionTwo.votes.concat(question.optionOne.votes)
+    return allVotes.includes(this.props.authedUser.id)
   }
 
   render() {
     const questions = Object.values(this.props.questions)
-    const loggedIn = false
-    // if (!loggedIn){
-    //   return (<Redirect to="/logout"/>)
-    // }
+    const loggedIn = this.props.authedUser.hasOwnProperty('id')
+    if (!loggedIn){
+      return (<Redirect to="/logout"/>)
+    }
     return (
       <div className="container">
         <div className="filter-btn">
@@ -29,6 +30,7 @@ class QuestionList extends Component {
           <ul className="question-list">
             {questions.map((question) => (
               <li key={question.id}>
+                {console.log(this.answeredByAuthedUser(question))}
                 <Question
                   id={question.id}
                   user={this.props.users[question.author].name}
@@ -43,10 +45,11 @@ class QuestionList extends Component {
   }
 }
 
-let mapStateToProps = ({users, questions}) => {
+let mapStateToProps = ({users, questions, authedUser}) => {
   return {
     users: users,
-    questions: questions
+    questions: questions,
+    authedUser: authedUser
   }
 }
 

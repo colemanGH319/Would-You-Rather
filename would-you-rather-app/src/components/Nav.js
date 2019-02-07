@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { setAuthedUser } from '../actions/authedUser'
+import { setAuthedUser, removeAuthedUser } from '../actions/authedUser'
 
 class Nav extends Component {
 
@@ -9,8 +9,12 @@ class Nav extends Component {
     this.props.dispatch(setAuthedUser({id: "tylermcginnis"}))
   }
 
+  handleLogout = () => {
+    this.props.dispatch(removeAuthedUser())
+  }
+
   render() {
-    const { authedUser } = this.props
+    const { authedUser, name } = this.props
     return (
       <div>
         <ul className="nav">
@@ -18,16 +22,20 @@ class Nav extends Component {
           <li><NavLink to='/' activeClassName='active'>Home</NavLink></li>
           <li><NavLink to='/new' activeClassName='active'>New Question</NavLink></li>
           <li><NavLink to='leaders'>Leader Board</NavLink></li>
-          <li id="logout"><NavLink onClick={() => this.handleLogin()} to='/logout'>
           {authedUser.hasOwnProperty('id') === false
-            ? "Login"
-            : "Logout"}
-          </NavLink></li>
-          <li id="hello">Hello!</li>
+            ? <li id="logout"><NavLink onClick={() => this.handleLogin()} to='/'>Login</NavLink></li>
+            : (<div><li id="logout"><NavLink onClick={() => this.handleLogout()} to='/logout'>Logout</NavLink></li>
+              <li id="hello">Hello, {name}!</li></div>)}
         </ul>
       </div>
     )
   }
 }
 
-export default connect(({ authedUser }) => { return { authedUser: authedUser }})(Nav)
+export default connect(({ authedUser, users }) => {
+  console.log()
+  return { authedUser: authedUser,
+          name: users[authedUser.id] === undefined
+                ? ''
+                : users[authedUser.id].name}
+})(Nav)
