@@ -194,3 +194,73 @@ code {
 }
 
 /* Login page */
+
+.login-box-outer {
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  margin-top: 2%;
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+.headline {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+
+.headline h2 {
+  margin-top: 1%;
+  margin-bottom: 0px;
+}
+
+.headline h3 {
+  margin-top: 0px;
+}
+
+.login-form {
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.login-labels {
+  display: inline-block;
+  text-align: right;
+  width: 40%;
+  padding: 5px;
+  vertical-align: top;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.form-input {
+  display: inline-block;
+  text-align: left;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.form-input select, input {
+  width: 180px;
+  height: 30px;
+  border: 1px solid grey;
+  border-width: thin;
+  border-radius: 3px;
+}
+
+.submit-btn {
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
+  height: 50px;
+  margin-top: 5%;
+  background-color: #FF4444;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  font-size: 20px;
+}
