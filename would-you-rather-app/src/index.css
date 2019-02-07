@@ -244,7 +244,7 @@ code {
   padding: 5px;
 }
 
-.form-input select, input, textarea {
+.form-input select, input {
   width: 180px;
   height: 30px;
   border: 1px solid grey;
@@ -263,4 +263,32 @@ code {
   border: none;
   border-radius: 3px;
   font-size: 20px;
+}
+
+.separator-text {
+  width: 5%;
+  margin-top: 0%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 25px;
+}
+
+.center-inputs {
+  margin-top: -20px;
+  margin-bottom: -20px;
+}
+
+.new-question-input {
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
+  height: 30px;
+  border: 1px solid grey;
+  border-width: thin;
+  border-radius: 3px;
+}
+
+.header {
+  margin-bottom: 5%;
+  margin-left: 5%;
 }
