@@ -24,12 +24,12 @@ class Login extends Component {
           </div>
           <div className="login-form">
             <form onSubmit={(e) => this.handleLoginSubmit(e)}>
-              <div class="login-labels">
-                <label for="username">Username:</label>
+              <div className="login-labels">
+                <label htmlFor="username">Username:</label>
               </div>
               <div className="form-input">
-                <select>
-                  <option disabled selected>Select a user</option>
+                <select defaultValue="select-user" id="username">
+                  <option disabled value="select-user">Select a user</option>
                   <option value="tylermcginnis">tylermcginnis</option>
                   <option value="sarahedo">sarahedo</option>
                   <option value="johndoe">johndoe</option>
@@ -45,9 +45,7 @@ class Login extends Component {
                   <input id="password" placeholder="Enter your password"/>
                 </div>
               </fragment>
-              ) : (null)
-
-              }
+              ) : (null)}
                 <input className="submit-btn" type="submit"/>
             </form>
           </div>
