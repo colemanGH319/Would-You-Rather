@@ -195,7 +195,7 @@ code {
 
 /* Login page */
 
-.login-box-outer {
+.box-outer {
   margin-left: auto;
   margin-right: auto;
   width: 40%;
@@ -244,7 +244,7 @@ code {
   padding: 5px;
 }
 
-.form-input select, input {
+.form-input select, input, textarea {
   width: 180px;
   height: 30px;
   border: 1px solid grey;
