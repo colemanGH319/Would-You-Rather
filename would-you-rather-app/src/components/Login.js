@@ -5,14 +5,22 @@ import { setAuthedUser } from '../actions/authedUser'
 
 class Login extends Component {
 
+  state = {
+    value: ''
+  }
+
   showPasswordField = () => false /* Temporary callback to hide the Password
       field since it doesn't currently do anything. */
 
   handleLoginSubmit = (e) => {
     e.preventDefault()
     console.log(e)
-    this.props.dispatch(setAuthedUser({ id: "sarahedo", loggedIn: true }))
+    this.props.dispatch(setAuthedUser({ id: this.state.value, loggedIn: true }))
     this.props.history.push('/')
+  }
+
+  changeUser = (value) => {
+    this.setState({value: value})
   }
 
   render() {
@@ -28,7 +36,7 @@ class Login extends Component {
                 <label htmlFor="username">Username:</label>
               </div>
               <div className="form-input">
-                <select defaultValue="select-user" id="username">
+                <select defaultValue="select-user" id="username" onChange={(event) => this.changeUser(event.target.value)}>
                   <option disabled value="select-user">Select a user</option>
                   <option value="tylermcginnis">tylermcginnis</option>
                   <option value="sarahedo">sarahedo</option>
