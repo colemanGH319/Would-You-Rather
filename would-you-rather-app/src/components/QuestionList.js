@@ -27,9 +27,8 @@ class QuestionList extends Component {
   render() {
     const questions = Object.values(this.props.questions)
     const loggedIn = this.props.authedUser.hasOwnProperty('id')
-    console.log("Toggle: ", this.state.defaultDisplay)
     if (!loggedIn){
-      return (<Redirect to="/logout"/>)
+      return (<Redirect to="/login"/>)
     }
     return (
       <div className="container">
@@ -39,7 +38,7 @@ class QuestionList extends Component {
         </div>
         <div className="panel">
           <ul className="question-list">
-            {questions.filter((question) => 
+            {questions.filter((question) =>
               this.answeredByAuthedUser(question) !== this.state.defaultDisplay
             ).map((question) => (
               <li key={question.id}>

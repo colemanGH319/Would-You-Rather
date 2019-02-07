@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Nav from './components/Nav'
 import QuestionList from './components/QuestionList'
 import PollView from './components/PollView'
+import Login from './components/Login'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { handleInitialData } from './actions/shared'
 import { connect } from 'react-redux'
@@ -21,6 +22,7 @@ class App extends Component {
                 <Nav />
                 <Route path='/' exact component={QuestionList} />
                 <Route path='/poll/:id' component={PollView} />
+                <Route path='/login' exact component={Login}/>
               </div>)}
       </div>
       </Router>

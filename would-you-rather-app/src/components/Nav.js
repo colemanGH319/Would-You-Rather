@@ -23,7 +23,7 @@ class Nav extends Component {
           <li><NavLink to='/new' activeClassName='active'>New Question</NavLink></li>
           <li><NavLink to='leaders'>Leader Board</NavLink></li>
           {authedUser.hasOwnProperty('id') === false
-            ? <li id="logout"><NavLink onClick={() => this.handleLogin()} to='/'>Login</NavLink></li>
+            ? <li id="logout"><NavLink to='/login'>Login</NavLink></li>
             : (<div><li id="logout"><NavLink onClick={() => this.handleLogout()} to='/logout'>Logout</NavLink></li>
               <li id="hello">Hello, {name}!</li></div>)}
         </ul>
