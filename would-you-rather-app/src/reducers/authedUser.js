@@ -8,7 +8,7 @@ export default function authedUser(state = {}, action) {
         ...action.authedUser
       }
     case REMOVE_AUTHED_USER :
-      return {}
+      return Object.assign({}, state, {id: null, loggedIn: false})
     default :
       return state
   }
