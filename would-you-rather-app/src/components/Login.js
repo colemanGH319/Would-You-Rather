@@ -17,7 +17,7 @@ class Login extends Component {
 
   render() {
     return (
-        <div className="login-box-outer">
+        <div className="box-outer">
           <div className="headline">
             <h2>Welcome to the Would You Rather App!</h2>
             <h3>Please log in to continue.</h3>
