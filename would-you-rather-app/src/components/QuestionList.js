@@ -26,8 +26,8 @@ class QuestionList extends Component {
 
   render() {
     const questions = Object.values(this.props.questions)
-    const loggedIn = this.props.authedUser.hasOwnProperty('id')
-    if (!loggedIn){
+    const { authedUser } = this.props
+    if (!authedUser.loggedIn){
       return (<Redirect to="/login"/>)
     }
     return (
