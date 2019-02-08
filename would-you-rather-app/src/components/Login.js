@@ -33,10 +33,11 @@ class Login extends Component {
                 <label htmlFor="username">Username:</label>
               </div>
               <div className="form-input">
-                <select defaultValue="select-user"
+                <select required={true}
+                        defaultValue=""
                         id="username"
                         onChange={(event) => this.changeUser(event.target.value)}>
-                  <option disabled value="select-user">Select a user</option>
+                  <option disabled value="">Select a user</option>
                   <option value="tylermcginnis">tylermcginnis</option>
                   <option value="sarahedo">sarahedo</option>
                   <option value="johndoe">johndoe</option>
