@@ -36,7 +36,9 @@ class Login extends Component {
                 <label htmlFor="username">Username:</label>
               </div>
               <div className="form-input">
-                <select defaultValue="select-user" id="username" onChange={(event) => this.changeUser(event.target.value)}>
+                <select defaultValue="select-user"
+                        id="username"
+                        onChange={(event) => this.changeUser(event.target.value)}>
                   <option disabled value="select-user">Select a user</option>
                   <option value="tylermcginnis">tylermcginnis</option>
                   <option value="sarahedo">sarahedo</option>
@@ -58,8 +60,7 @@ class Login extends Component {
             </form>
           </div>
         </div>
-    )
-  }
+    )}
 }
 
 export default withRouter(connect()(Login))
