@@ -9,9 +9,6 @@ class Login extends Component {
     value: ''
   }
 
-  showPasswordField = () => false /* Temporary callback to hide the Password
-      field since it doesn't currently do anything. */
-
   handleLoginSubmit = (e) => {
     e.preventDefault()
     console.log(e)
@@ -46,16 +43,6 @@ class Login extends Component {
                 </select>
               </div>
               <br/>
-              {this.showPasswordField() ? (
-              <fragment>
-                <div className="login-labels">
-                  <label for="password">Password:</label>
-                </div>
-                <div className="form-input">
-                  <input id="password" placeholder="Enter your password"/>
-                </div>
-              </fragment>
-              ) : (null)}
                 <input className="submit-btn" type="submit"/>
             </form>
           </div>
