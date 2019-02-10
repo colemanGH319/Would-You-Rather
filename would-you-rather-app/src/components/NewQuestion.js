@@ -31,6 +31,7 @@ class NewQuestion extends Component {
       optionTwoText: this.state.optionTwo,
       author: this.props.authedUser.id
     }))
+    this.props.history.push('/')
   }
 
   render() {
