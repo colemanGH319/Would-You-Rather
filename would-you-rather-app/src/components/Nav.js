@@ -15,9 +15,9 @@ class Nav extends Component {
       <div>
         <ul className="nav">
           <li id="brand">WYR?</li>
-          <li><NavLink to='/' activeClassName='active'>Home</NavLink></li>
-          <li><NavLink to='/new' activeClassName='active'>New Question</NavLink></li>
-          <li><NavLink to='leaders'>Leader Board</NavLink></li>
+          <li><NavLink exact to='/'>Home</NavLink></li>
+          <li><NavLink exact to='/new'>New Question</NavLink></li>
+          <li><NavLink exact to='leaders'>Leader Board</NavLink></li>
           {authedUser.hasOwnProperty('id') === false
             ? <li id="logout"><NavLink to='/login'>Login</NavLink></li>
             : (<div>
@@ -37,7 +37,6 @@ class Nav extends Component {
 }
 
 export default connect(({ authedUser, users }) => {
-  console.log()
   return { authedUser: authedUser,
           name: users[authedUser.id] === undefined
                 ? ''
