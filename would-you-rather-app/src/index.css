@@ -46,12 +46,12 @@ code {
   text-decoration: none;
 }
 
-.nav li a:hover:not(.active) {
+.nav li a:hover {
   background-color: #4444AA;
 }
 
-.active {
-  bacground-color: #8888DD;
+.current {
+ background-color: #4444DD;
 }
 
 #brand {
@@ -110,6 +110,12 @@ code {
 
 .filter-btn button:hover {
   background-color: #DD0000;
+}
+
+.filter-btn button:disabled {
+  background-color: #DD0000;
+  border: 2px solid blue;
+  cursor: not-allowed;
 }
 
 .question-list {
