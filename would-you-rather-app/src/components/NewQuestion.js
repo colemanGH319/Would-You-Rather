@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { handleNewQuestion } from '../actions/questions'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
@@ -25,6 +26,11 @@ class NewQuestion extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
+    this.props.dispatch(handleNewQuestion({
+      optionOneText: this.state.optionOne,
+      optionTwoText: this.state.optionTwo,
+      author: this.props.authedUser.id
+    }))
   }
 
   render() {
