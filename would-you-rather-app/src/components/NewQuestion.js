@@ -38,7 +38,6 @@ class NewQuestion extends Component {
     if (!authedUser.loggedIn){
       return <Redirect to='/login'/>
     }
-    console.log(this.state)
     return (
       <div className="box-outer">
         <div className="new-question">
