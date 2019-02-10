@@ -13,12 +13,14 @@ class QuestionList extends Component {
   }
 
   showUnanswered = () => {
+    console.log("firing unanswered callback")
     this.setState(() => ({
       defaultDisplay: true
     }))
   }
 
   showAnswered = () => {
+    console.log("firing answered callback")
     this.setState(() => ({
       defaultDisplay: false
     }))
@@ -33,8 +35,10 @@ class QuestionList extends Component {
     return (
       <div className="container">
         <div className="filter-btn">
-          <button onClick={this.showUnanswered}>Unanswered Questions</button>
-          <button onClick={this.showAnswered}>Answered Questions</button>
+          <button disabled={this.state.defaultDisplay === true}
+                  onClick={this.showUnanswered}>Unanswered Questions</button>
+          <button disabled={this.state.defaultDisplay === false}
+                  onClick={this.showAnswered}>Answered Questions</button>
         </div>
         <div className="panel">
           <ul className="question-list">
