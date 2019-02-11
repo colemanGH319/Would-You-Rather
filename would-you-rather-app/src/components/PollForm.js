@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-  import {handleQuestionAnswer} from '../actions/questions'
+import {handleQuestionAnswer} from '../actions/questions'
+import { connect } from 'react-redux'
 
 class PollForm extends Component {
 
@@ -15,8 +16,11 @@ class PollForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    console.log("Submitting")
-    this.props.dispatch(handleQuestionAnswer)
+    this.props.dispatch(handleQuestionAnswer({
+      authedUser: this.props.authedUser.id,
+      qid: this.props.poll.id,
+      answer: this.state.value
+    }))
   }
 
   render() {
@@ -24,7 +28,7 @@ class PollForm extends Component {
     return (
       <div>
         <h2>Would you rather?</h2>
-        <form action="#" onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit}>
           <label>
             <input type="radio"
                   name="poll-option"
@@ -46,4 +50,4 @@ class PollForm extends Component {
   }
 }
 
-export default PollForm
+export default connect()(PollForm)
