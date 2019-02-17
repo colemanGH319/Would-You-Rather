@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import UserStats from './UserStats'
+import { Redirect } from 'react-router-dom'
 
 class LeaderBoard extends Component {
 
@@ -9,10 +11,19 @@ class LeaderBoard extends Component {
     this.image = {
       URL: "https://tinyurl.com/yxeb5esp"
     }
+
+    this.activitySum = function (user) {
+      return Object.values(user.answers).length + user.questions.length
+    }
   }
 
   render() {
-    console.log(this.props)
+    const { authedUser, users } = this.props
+
+    if (!authedUser.loggedIn){
+      return (<Redirect to="/login"/>)
+    }
+    const userData = Object.values(users)
     return (
       <div className='container'>
         <div className='headline'>
@@ -20,18 +31,13 @@ class LeaderBoard extends Component {
         </div>
         <div className='panel'>
           <ul className='question-list'>
-            <li>
-              <div className="question">
-                <div className="question-info">
-                  <img src={this.image.URL} alt="Your face here"/>
-                  <h4>Username</h4>
-                </div>
-                <div className="question-info">
-                  <p>Thing 1</p>
-                  <p>Thing 2</p>
-                </div>
-              </div>
-            </li>
+              { userData.sort((a, b) => {
+                  return this.activitySum(b) - this.activitySum(a)
+              }).map((user) => (
+                <li key={user.id}>
+                  <UserStats user={user} image={this.image} activitySum={this.activitySum}/>
+                </li>
+              ))}
           </ul>
         </div>
       </div>
