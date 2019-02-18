@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import PollForm from './PollForm'
+import PollResults from './PollResults'
 import { connect } from 'react-redux'
-import { NavLink, Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 class PollView extends Component {
   constructor(props){
@@ -19,10 +20,7 @@ class PollView extends Component {
   }
 
   render() {
-
     const { user, poll, authedUser } = this.props
-    console.log(this.getResponseAuthors(poll))
-    console.log(this.getResponseAuthors(poll).includes(authedUser.id))
     if (!authedUser.loggedIn){
       return (<Redirect to="/login"/>)
     }
@@ -34,15 +32,15 @@ class PollView extends Component {
         </div>
         <div className="question-info">
           {this.getResponseAuthors(poll).includes(authedUser.id) === true
-            ? (null)
-            : <PollForm poll={poll}/>}
+            ? (<PollResults poll={poll}/>)
+            : <PollForm poll={poll} authedUser={authedUser}/>}
         </div>
       </div>
     )
   }
 }
 
-function mapStateToProps({ questions, users, authedUser }, props) {
+function mapStateToProps({ questions, authedUser }, props) {
   const { id } = props.match.params
   const question = questions[id]
   return {
