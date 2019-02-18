@@ -13,14 +13,12 @@ class QuestionList extends Component {
   }
 
   showUnanswered = () => {
-    console.log("firing unanswered callback")
     this.setState(() => ({
       defaultDisplay: true
     }))
   }
 
   showAnswered = () => {
-    console.log("firing answered callback")
     this.setState(() => ({
       defaultDisplay: false
     }))
