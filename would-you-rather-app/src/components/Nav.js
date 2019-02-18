@@ -22,7 +22,10 @@ class Nav extends Component {
             ? <li id="logout"><NavLink to='/login'>Login</NavLink></li>
             : (<div>
                 <li id="logout">
-                  <NavLink onClick={() => this.handleLogout()} to='/logout'>Logout</NavLink>
+                  { authedUser.loggedIn === true
+                    ? <NavLink onClick={() => this.handleLogout()} to='/login'>Logout</NavLink>
+                    : <NavLink exact to='/login'>Login</NavLink>
+                  }
                 </li>
                 <li id="hello">
                   {authedUser.loggedIn
