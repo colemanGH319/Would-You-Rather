@@ -1,4 +1,4 @@
-import { SET_USERS, USER_ANSWER } from '../actions/users'
+import { SET_USERS, USER_ANSWER, ADD_USER_QUESTION } from '../actions/users'
 
 export default function users (state = {}, action) {
   switch(action.type) {
@@ -16,6 +16,14 @@ export default function users (state = {}, action) {
             ...state[action.user.authedUser].answers,
             [action.user.qid]: action.user.answer
           }
+        }
+      }
+    case ADD_USER_QUESTION :
+      return {
+        ...state,
+        [action.data.author]: {
+          ...state[action.data.author],
+          questions: state[action.data.author].questions.concat(action.data.id)
         }
       }
     default :
