@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import {handleQuestionAnswer} from '../actions/questions'
+import { handleQuestionAnswer } from '../actions/questions'
+import { updateUserAnswers } from '../actions/users'
 import { connect } from 'react-redux'
 
 class PollForm extends Component {
@@ -17,6 +18,11 @@ class PollForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     this.props.dispatch(handleQuestionAnswer({
+      authedUser: this.props.authedUser.id,
+      qid: this.props.poll.id,
+      answer: this.state.value
+    }))
+    this.props.dispatch(updateUserAnswers({
       authedUser: this.props.authedUser.id,
       qid: this.props.poll.id,
       answer: this.state.value
