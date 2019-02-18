@@ -33,10 +33,10 @@ class LeaderBoard extends Component {
           <ul className='question-list'>
               { userData.sort((a, b) => {
                   return this.activitySum(b) - this.activitySum(a)
-              }).map((user) => (
-                <li key={user.id}>
-                  <UserStats user={user} image={this.image} activitySum={this.activitySum}/>
-                </li>
+                }).map((user) => (
+                  <li key={user.id}>
+                    <UserStats user={user} image={this.image} activitySum={this.activitySum}/>
+                  </li>
               ))}
           </ul>
         </div>
