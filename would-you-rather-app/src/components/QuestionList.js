@@ -50,6 +50,7 @@ class QuestionList extends Component {
                     id={question.id}
                     user={this.props.users[question.author].name}
                     text={question.optionOne.text}
+                    avatarURL={this.props.users[question.author].avatarURL}
                     />
                 </li>
             ))}

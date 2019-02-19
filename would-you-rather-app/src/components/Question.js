@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
+import { imageURL } from '../images'
 
 class Question extends Component {
   constructor(props){
     super(props)
 
     this.image = {
-      URL:  "https://tinyurl.com/yxeb5esp"
+      URL:  this.props.avatarURL !== ''
+            ? this.props.avatarURL
+            : imageURL
     }
   }
 

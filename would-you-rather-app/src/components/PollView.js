@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PollForm from './PollForm'
 import PollResults from './PollResults'
+import { imageURL } from '../images'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
@@ -9,7 +10,9 @@ class PollView extends Component {
     super(props)
 
     this.image = {
-      URL: "https://tinyurl.com/yxeb5esp"
+      URL:  this.props.avatarURL !== ''
+            ? this.props.avatarURL
+            : imageURL
     }
 
     this.getResponseAuthors.bind(this)
@@ -40,12 +43,13 @@ class PollView extends Component {
   }
 }
 
-function mapStateToProps({ questions, authedUser }, props) {
+function mapStateToProps({ questions, users, authedUser }, props) {
   const { id } = props.match.params
   const question = questions[id]
   return {
     id,
     user: question.author,
+    avatarURL: users[question.author].avatarURL,
     poll: question,
     authedUser: authedUser
   }
