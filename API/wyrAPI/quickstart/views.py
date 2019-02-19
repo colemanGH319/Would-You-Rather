@@ -1,8 +1,30 @@
-from .models import User
-from rest_framework import viewsets
-from .serializers import UserSerializer
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from quickstart.serializers import UserSerializer, AnswerSerializer
+
 
 # Create your views here.
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+
+@api_view(['GET'])
+def user_list(request):
+    """
+    List all users and their information
+    """
+
+    if request.method == 'GET':
+        serializer = UserSerializer(data={'id':'sarahedo',
+                                        'name':'Sarah Edo',
+                                        'avatarURL':'',
+                                        'answers':[{'question':'abcdef',
+                                                    'answer':'ONE'}]
+                                    })
+        serializer.is_valid()
+        return Response(serializer.data)
+
+@api_view(['GET'])
+def answer_list(request):
+
+    if request.method == 'GET':
+        serializer = AnswerSerializer(data={'question':'abcdef','answer':'ONE'})
+        serializer.is_valid()
+        return Response(serializer.data)
