@@ -23,10 +23,10 @@ class App extends Component {
               : (<div>
                   <Nav />
                   <Route exact path='/' component={QuestionList} />
-                  <Route path='/poll/:id' component={PollView} />
+                  <Route path='/questions/:id' component={PollView} />
                   <Route path='/login' component={Login}/>
-                  <Route path='/new' component={NewQuestion} />
-                  <Route path='/leaders' component={LeaderBoard}/>
+                  <Route path='/add' component={NewQuestion} />
+                  <Route path='/leaderboard' component={LeaderBoard}/>
                 </div>)}
         </Fragment>
       </Router>

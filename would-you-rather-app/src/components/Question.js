@@ -20,7 +20,7 @@ class Question extends Component {
           <div className="question-info">
             <h2>Would you rather?</h2>
             <p>...{this.props.text}...</p>
-            <button><NavLink to={`/poll/${this.props.id}`}>View Poll</NavLink></button>
+            <button><NavLink to={`/questions/${this.props.id}`}>View Poll</NavLink></button>
           </div>
         </div>
     )

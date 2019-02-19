@@ -16,8 +16,8 @@ class Nav extends Component {
         <ul className="nav">
           <li id="brand">WYR?</li>
           <li><NavLink exact to='/'>Home</NavLink></li>
-          <li><NavLink exact to='/new'>New Question</NavLink></li>
-          <li><NavLink exact to='/leaders'>Leader Board</NavLink></li>
+          <li><NavLink exact to='/add'>New Question</NavLink></li>
+          <li><NavLink exact to='/leaderboard'>Leader Board</NavLink></li>
           {authedUser.hasOwnProperty('id') === false
             ? <li id="logout"><NavLink to='/login'>Login</NavLink></li>
             : (<div>
