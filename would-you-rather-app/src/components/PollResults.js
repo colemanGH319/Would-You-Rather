@@ -9,8 +9,8 @@ class PollResults extends Component {
     return (
       <div>
         <h2>Results</h2>
-        <p>{poll.optionOne.text + ": " + (resultOne / (resultOne + resultTwo)) * 100 + '%'}</p>
-        <p>{poll.optionTwo.text + ": " + (resultTwo / (resultOne + resultTwo)) * 100 + '%'}</p>
+        <p>{poll.optionOne.text + ": " + ((resultOne / (resultOne + resultTwo)) * 100).toFixed(2) + '%'}</p>
+        <p>{poll.optionTwo.text + ": " + ((resultTwo / (resultOne + resultTwo)) * 100).toFixed(2) + '%'}</p>
       </div>
     )
   }
