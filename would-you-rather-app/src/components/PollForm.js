@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { handleQuestionAnswer } from '../actions/questions'
+import { handleQuestionAnswer } from '../actions/shared'
 import { updateUserAnswers } from '../actions/users'
 import { connect } from 'react-redux'
 
