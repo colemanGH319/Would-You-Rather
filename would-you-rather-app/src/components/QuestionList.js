@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
+import Login from './Login'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
 import Question from './Question'
 
 class QuestionList extends Component {
@@ -28,7 +28,7 @@ class QuestionList extends Component {
     const questions = Object.values(this.props.questions)
     const { authedUser } = this.props
     if (!authedUser.loggedIn){
-      return (<Redirect to="/login"/>)
+      return (<Login />)
     }
     return (
       <div className="container">
@@ -69,5 +69,4 @@ let mapStateToProps = ({users, questions, authedUser}) => {
   }
 }
 
-// export default QuestionList
 export default connect(mapStateToProps)(QuestionList)

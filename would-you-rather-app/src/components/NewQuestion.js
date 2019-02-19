@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
+import Login from './Login'
 import { handleNewQuestion } from '../actions/shared'
-import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 class NewQuestion extends Component {
@@ -37,7 +37,7 @@ class NewQuestion extends Component {
   render() {
     const { authedUser } = this.props
     if (!authedUser.loggedIn){
-      return <Redirect to='/login'/>
+      return <Login />
     }
     return (
       <div className="box-outer">

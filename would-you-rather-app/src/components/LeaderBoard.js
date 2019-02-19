@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
+import Login from './Login'
 import { connect } from 'react-redux'
 import UserStats from './UserStats'
-import { Redirect } from 'react-router-dom'
 
 class LeaderBoard extends Component {
 
@@ -21,7 +21,7 @@ class LeaderBoard extends Component {
     const { authedUser, users } = this.props
 
     if (!authedUser.loggedIn){
-      return (<Redirect to="/login"/>)
+      return (<Login/>)
     }
     const userData = Object.values(users)
     return (

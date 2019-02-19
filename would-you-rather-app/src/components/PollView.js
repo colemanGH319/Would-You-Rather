@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import PollForm from './PollForm'
 import PollResults from './PollResults'
+import Login from './Login'
 import { imageURL } from '../images'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
 
 class PollView extends Component {
   constructor(props){
@@ -24,8 +24,8 @@ class PollView extends Component {
 
   render() {
     const { user, poll, authedUser } = this.props
-    if (!authedUser.loggedIn){
-      return (<Redirect to="/login"/>)
+    if (this.props.id === null || authedUser.loggedIn === false){
+      return (<Login />)
     }
     return (
       <div className="poll-container">
@@ -46,6 +46,9 @@ class PollView extends Component {
 function mapStateToProps({ questions, users, authedUser }, props) {
   const { id } = props.match.params
   const question = questions[id]
+  if (questions.hasOwnProperty(id) === false){
+    return { id: null, authedUser: null }
+  }
   return {
     id,
     user: question.author,
