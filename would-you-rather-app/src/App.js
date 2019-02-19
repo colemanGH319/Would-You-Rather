@@ -33,9 +33,9 @@ class App extends Component {
     )}
 }
 
-function mapStateToProps({ users, questions }) {
+function mapStateToProps({ loading }) {
   return {
-    loading: (Object.values(users).length === 0 || Object.values(questions).length === 0),
+    ...loading,
   }
 }
 
