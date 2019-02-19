@@ -40,16 +40,18 @@ class QuestionList extends Component {
         </div>
         <div className="panel">
           <ul className="question-list">
-            {questions.filter((question) =>
-              this.answeredByAuthedUser(question) !== this.state.defaultDisplay
-            ).map((question) => (
-              <li key={question.id}>
-                <Question
-                  id={question.id}
-                  user={this.props.users[question.author].name}
-                  text={question.optionOne.text}
-                  />
-              </li>
+            { questions.sort((a, b) => {
+              return b.timestamp - a.timestamp
+              }).filter((question) =>
+                this.answeredByAuthedUser(question) !== this.state.defaultDisplay
+              ).map((question) => (
+                <li key={question.id}>
+                  <Question
+                    id={question.id}
+                    user={this.props.users[question.author].name}
+                    text={question.optionOne.text}
+                    />
+                </li>
             ))}
           </ul>
         </div>
