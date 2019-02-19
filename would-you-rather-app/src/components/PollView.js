@@ -35,7 +35,7 @@ class PollView extends Component {
         </div>
         <div className="question-info">
           {this.getResponseAuthors(poll).includes(authedUser.id) === true
-            ? (<PollResults poll={poll}/>)
+            ? (<PollResults poll={poll} authedUser={authedUser}/>)
             : <PollForm poll={poll} authedUser={authedUser}/>}
         </div>
       </div>
