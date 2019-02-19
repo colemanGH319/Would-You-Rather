@@ -1,15 +1,25 @@
 import React, { Component } from 'react'
+import { imageURL } from '../images'
 
 
 class UserStats extends Component {
+  constructor(props){
+    super(props)
+
+    this.image = {
+      URL: this.props.user.avatarURL !== ''
+          ? this.props.user.avatarURL
+          : imageURL
+    }
+  }
 
   render() {
-    const { image, user } = this.props
+    const { user } = this.props
     return (
       <div>
         <div className="question">
           <div className="question-info">
-            <img src={image.URL} alt="Your face here"/>
+            <img src={this.image.URL} alt="Your face here"/>
             <h4>{user.id}</h4>
           </div>
           <div className="question-info">

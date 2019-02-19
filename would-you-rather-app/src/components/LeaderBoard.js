@@ -8,10 +8,6 @@ class LeaderBoard extends Component {
   constructor(props){
     super(props)
 
-    this.image = {
-      URL: "https://tinyurl.com/yxeb5esp"
-    }
-
     this.activitySum = function (user) {
       return Object.values(user.answers).length + user.questions.length
     }
@@ -19,7 +15,6 @@ class LeaderBoard extends Component {
 
   render() {
     const { authedUser, users } = this.props
-
     if (!authedUser.loggedIn){
       return (<Login/>)
     }
@@ -35,7 +30,7 @@ class LeaderBoard extends Component {
                   return this.activitySum(b) - this.activitySum(a)
                 }).map((user) => (
                   <li key={user.id}>
-                    <UserStats user={user} image={this.image} activitySum={this.activitySum}/>
+                    <UserStats user={user} activitySum={this.activitySum}/>
                   </li>
               ))}
           </ul>
