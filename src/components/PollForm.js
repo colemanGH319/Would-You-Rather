@@ -17,6 +17,14 @@ class PollForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
+    if (this.state.value === '') {
+      let form = document.getElementById('poll-form')
+      let message = document.createElement('h3')
+      message.innerHTML = 'Please make a selection.'
+      message.style.cssText = 'color: red'
+      form.appendChild(message)
+      return
+    }
     this.props.dispatch(handleQuestionAnswer({
       authedUser: this.props.authedUser.id,
       qid: this.props.poll.id,
@@ -34,7 +42,7 @@ class PollForm extends Component {
     return (
       <div>
         <h2>Would you rather?</h2>
-        <form onSubmit={this.handleSubmit}>
+        <form id="poll-form" onSubmit={this.handleSubmit}>
           <label>
             <input type="radio"
                   name="poll-option"
