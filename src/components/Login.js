@@ -12,7 +12,9 @@ class Login extends Component {
   handleLoginSubmit = (e) => {
     e.preventDefault()
     this.props.dispatch(setAuthedUser({ id: this.state.value, loggedIn: true }))
-    this.props.history.push('/')
+    if (this.props.location.pathname === '/login'){
+      this.props.history.push('/')
+    }  
   }
 
   changeUser = (value) => {
