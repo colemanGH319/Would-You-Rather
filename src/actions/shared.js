@@ -10,8 +10,8 @@ export function handleInitialData () {
     return Promise.all([_getUsers(), _getQuestions()])
         .then(([users, questions]) => {
           dispatch(setUsers(users))
-          dispatch(setQuestions(questions))
           dispatch(setAuthedUser({id: null, loggedIn: false}))
+          dispatch(setQuestions(questions))
         })
         .then(() => dispatch(hideLoading()))
   }
@@ -24,16 +24,13 @@ export function handleNewQuestion(question) {
         .then((question) => {
           return dispatch(createQuestion(question))
         })
-        .catch((e) => {
-          alert(e)
-        })
         .then((data) => {
           return dispatch(addUserQuestion(data.question))
         })
+        .then(() => dispatch(hideLoading()))
         .catch((e) => {
           alert(e)
         })
-        .then(() => dispatch(hideLoading()))
   }
 }
 
