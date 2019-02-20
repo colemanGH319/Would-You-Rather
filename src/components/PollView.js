@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PollForm from './PollForm'
 import PollResults from './PollResults'
 import Login from './Login'
+import ErrorPage from './ErrorPage'
 import { imageURL } from '../images'
 import { connect } from 'react-redux'
 
@@ -24,8 +25,11 @@ class PollView extends Component {
 
   render() {
     const { user, poll, authedUser } = this.props
-    if (this.props.id === null || authedUser.loggedIn === false){
+    if ([undefined, null].includes(authedUser.id)){
       return (<Login />)
+    }
+    if (poll === null) {
+      return (<ErrorPage />)
     }
     return (
       <div className="poll-container">
@@ -47,7 +51,7 @@ function mapStateToProps({ questions, users, authedUser }, props) {
   const { id } = props.match.params
   const question = questions[id]
   if (questions.hasOwnProperty(id) === false){
-    return { id: null, authedUser: null }
+    return { poll: null, authedUser }
   }
   return {
     id,
