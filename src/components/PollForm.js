@@ -44,18 +44,20 @@ class PollForm extends Component {
         <h2>Would you rather?</h2>
         <form id="poll-form" onSubmit={this.handleSubmit}>
           <label>
-            <input type="radio"
+            <input class="poll-radio"
+                  type="radio"
                   name="poll-option"
                   value="optionOne"
                   checked={this.state.value === 'optionOne'}
-                  onChange={this.handleInputChange}/> {poll.optionOne.text}
+                  onChange={this.handleInputChange}/><span class="poll-text">{poll.optionOne.text}</span>
           </label><br/>
           <label>
-            <input type="radio"
+            <input class="poll-radio"
+                  type="radio"
                   name="poll-option"
                   value="optionTwo"
                   checked={this.state.value === 'optionTwo'}
-                  onChange={this.handleInputChange}/> {poll.optionTwo.text}
+                  onChange={this.handleInputChange}/><span class="poll-text">{poll.optionTwo.text}</span>
           </label>
           <input type="submit" id="poll-button" value="Submit" />
         </form>
